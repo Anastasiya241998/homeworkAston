@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
  */
 
 public class MyArrayList<T> {
+    public static final String MSG = "емкость <= 0";
     /**
      * Количество элементов в массиве
      */
@@ -23,14 +24,14 @@ public class MyArrayList<T> {
      * Изначальная длинна массива
      */
 
-    private final int DEFAULT_CAPACITY = 7;
+    private static final int DEFAULT_CAPACITY = 7;
 
     /**
      * Проверка емкости массива
      */
     public MyArrayList(int capacity) {
         if (capacity <= 0) {
-            throw new IllegalArgumentException("емкость <= 0");
+            throw new IllegalArgumentException(MSG); // строки всегда в константах
         }
         list = (T[]) new Object[capacity];
     }
@@ -78,7 +79,7 @@ public class MyArrayList<T> {
      */
     private void сorrectIndex(int index) {
         if (index > size || index < 0) {
-            throw new IllegalArgumentException("Индекс не должен быть отрицательным или бвть больше коллекции");
+            throw new IllegalArgumentException("Индекс не должен быть отрицательным или бвть больше коллекции"); // тоже в константу
         }
     }
     /**
@@ -127,11 +128,9 @@ public class MyArrayList<T> {
     /**
      * Метод вывода массива в консоль
      */
-    @Override
-    public String toString() {
-        for (T elem : list)
-            System.out.printf(elem + "  ");
-        return null;
+    public void print() {
+        for (T elem : list) // не забывай про {}
+            System.out.print(elem + "  "); // зачем тут printf?
     }
 
     /**

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// не тесты как-будто мало времени потратила) Они не все как надо тестят, но энивей я засчитаю)
 class MyArrayListTest {
     MyArrayList<String> list1 = new MyArrayList<>();
 
@@ -41,7 +42,6 @@ class MyArrayListTest {
     @Test
     void get() {
         list1.add("Nastya");
-        list1.get(0);
         Assertions.assertEquals("Nastya", list1.get(0));
 
     }
@@ -49,8 +49,8 @@ class MyArrayListTest {
     @Test
     void set() {
         list1.add("Nastya");
-        list1.set(0, "Nastya");
-        Assertions.assertEquals("Nastya", list1.get(0));
+        list1.set(0, "Nastyaaaa");
+        Assertions.assertEquals("Nastyaaaa", list1.get(0));
 
     }
 
@@ -59,7 +59,8 @@ class MyArrayListTest {
         list1.add("Nastya");
         list1.add("Lesha");
         list1.removeFirst();
-        assertEquals(list1.size(), 1);
+        assertEquals(list1.size(), 1); // а почему проверяешь размер, а не то какой элемент лежит + размер
+        assertEquals(list1.get(0), "Lesha");
 
     }
 
@@ -76,7 +77,7 @@ class MyArrayListTest {
     void testToString() {
         list1.add("Nastya");
         list1.toString();
-        assertEquals(list1.size(), 1);
+        assertEquals(list1.size(), 1); // а тут что провераешь?
 
     }
 }

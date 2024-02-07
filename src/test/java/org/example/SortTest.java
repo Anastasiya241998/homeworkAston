@@ -1,14 +1,10 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.example.Sort;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SortTest {
-
-
 
     @Test
     void sort() {
